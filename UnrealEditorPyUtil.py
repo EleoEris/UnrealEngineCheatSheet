@@ -7,7 +7,7 @@ def getActorsByNames(*args) -> [actor]:
 # tested - single line for editor
 # [lightActor for lightActor in unreal.EditorLevelLibrary.get_all_level_actors() if any(string.lower() in lightActor.get_name().lower() for string in ["skylight", "skyatmosphere", "directionallight", "exponentialheightfog"])]
 
-# untested
+# untested - case sensitive
 def getActorsByNamesCS(*args) -> [actor]:
     for actor in unreal.EditorLevelLibrary.get_all_level_actors():
         if any(string in lightActor.get_name().lower() for string in *args):
