@@ -2,7 +2,7 @@ import unreal
 
 # untested - case insensitive
 # takes strings and yields all level actors that contain those strings in their get_name()
-def getActorsByNames(*args) -> list[actor]:
+def getActorsByNames(*args:str) -> list[actor]:
     for actor in unreal.EditorLevelLibrary.get_all_level_actors():
         if any(string.lower() in lightActor.get_name().lower() for string in *args):
             yield actor
@@ -12,7 +12,7 @@ def getActorsByNames(*args) -> list[actor]:
 
 # untested - case sensitive
 # takes strings and yields all level actors that contain those strings in their get_name()
-def getActorsByNamesCS(*args) -> list[actor]:
+def getActorsByNamesCS(*args:str) -> list[actor]:
     for actor in unreal.EditorLevelLibrary.get_all_level_actors():
         if any(string in lightActor.get_name().lower() for string in *args):
             yield actor
